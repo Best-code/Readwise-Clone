@@ -33,10 +33,9 @@ def stripNotes(notes):
     return notes
 
 def addToExcel(book, notes):
+    book = book.replace(" ", "-")
     books = pd.DataFrame({book:notes})
-    books.to_excel(f"csvs/{book.replace(' ','-')}.xlsx")
-
-    
+    books.to_excel(f"csvs/{book}.xlsx")
 
 def main():
     book, notes = getBookAndNotes()
