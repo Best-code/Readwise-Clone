@@ -9,7 +9,7 @@ def getRandomNotes(choice, amt):
         sample = book
     else:
         sample = book.sample(amt)
-    return sample 
+    return sample.to_numpy()
 
 if __name__ == "__main__":
     if(len(sys.argv) < 2):
