@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="sticky">
+    <h1>{% block title %}Book Options{% endblock %}</h1>
+</div>
+
+<ol>
+    {%for book in books %}
+    <li>
+        <a href="{{url_for('get_items', title=book)}}">{{book}}</a>
+    </li>
+    {%endfor%}
+</ol>
+{% endblock %}

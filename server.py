@@ -4,6 +4,15 @@ app = Flask(__name__)
 
 
 import getNotes
+import os
+from htmlToCsv import nameCleaner
+
+@app.route("/", methods=['GET'])
+def home_page():
+    books = os.listdir("htmls")
+    for book in range(len(books)):
+        books[book] = nameCleaner(books[book])
+    return render_template("index.html", books=books)
 
 # Read (GET) all items
 @app.route('/notes/<string:title>', methods=['GET'])

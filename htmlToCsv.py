@@ -3,6 +3,9 @@ import os
 
 import pandas as pd
 
+def nameCleaner(name):
+    return name[0:name.index("-Notebook")]
+
 def chooseBookFile(books):
     # List out all the books
     for i, book in enumerate(books):
@@ -24,7 +27,7 @@ def getBookAndNotes():
         # Only retrieves the note, not the Heading
         notes = stripNotes(notes)
 
-    return choice.removesuffix("-Notebook copy.html"), notes
+    return nameCleaner(choice), notes
 
 def stripNotes(notes):
     for note in range(len(notes)):
@@ -33,7 +36,7 @@ def stripNotes(notes):
     return notes
 
 def addToExcel(book, notes):
-    book = book.replace(" ", "-")
+    # book = book.replace(" ", "-")
     books = pd.DataFrame({book:notes})
     books.to_excel(f"csvs/{book}.xlsx")
 
