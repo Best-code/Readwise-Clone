@@ -11,8 +11,12 @@ def get_items(title):
     args = request.args
     amt = args.get("amt", default=5, type=int)
     notes = getNotes.getRandomNotes(title, amt)
-    return render_template("index.html", BookTitle=title, notes=notes, len=len(notes))
+    return render_template("all.html", BookTitle=title, notes=notes, len=len(notes))
 
+@app.route('/notes/<string:title>/<int:loc>', methods=['GET'])
+def get_item(title, loc):
+    note = getNotes.getNote(title, loc)
+    return render_template("single.html", BookTitle=title, note=note, loc=loc)
 
 
 # # Delete (DELETE) an item by ID

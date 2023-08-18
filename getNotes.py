@@ -11,6 +11,12 @@ def getRandomNotes(choice, amt):
         sample = book.sample(amt)
     return sample.to_numpy()
 
+def getNote(choice, loc):
+    route = "csvs/" + choice + ".xlsx"
+    book = pd.read_excel(route)
+
+    return book[choice][loc]
+
 if __name__ == "__main__":
     if(len(sys.argv) < 2):
         print("## Provide a title arguement")

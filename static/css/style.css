@@ -15,10 +15,18 @@ h1 {
 }
 
 .note-container {
-    padding: 1rem 2rem 1rem 2rem;
+    padding: 2rem 0rem;
 }
 
 .individual-note {
     font-size: x-large;
     background-color: #eee;
+    padding: 2rem;
+    text-align: center;
+}
+
+.back-button {
+    padding: 1rem 0rem;
+    margin: 1rem 0rem;
+    width: 10%;
 }

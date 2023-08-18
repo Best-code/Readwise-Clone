@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="sticky">
+    <h1>{% block title %}{{BookTitle}} Note {{loc}}{% endblock %}</h1>
+</div>
+
+<div class="note-container">
+    <div class="individual-note">
+        <p>{{note}}</p>
+    </div>
+    
+    <a href="{{url_for('get_items', title=BookTitle)}}">
+        <button href="" class="back-button">
+            Back
+        </button>
+    </a>
+</div>
+{% endblock %}
